@@ -5,7 +5,7 @@ class Node {
   }
 }
 
-class LinkedList {
+module.exports = class LinkedList {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -132,14 +132,16 @@ class LinkedList {
     }
     console.log(arr);
   }
-}
+};
 
-var list = new LinkedList();
+// var list = new LinkedList();
 
-list.push(100);
-list.push(201);
-list.push(250);
-list.push(350);
-list.push(999);
-list.reverse();
-list.print();
+// list.push(100);
+// list.push(201);
+// list.push(250);
+// list.push(350);
+// list.push(999);
+// list.reverse();
+// list.print();
+
+// module.exports = LinkedList;
