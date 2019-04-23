@@ -40,6 +40,26 @@ class BinarySearchTree {
       return !!(node.left && this.find(value, node.left));
     }
   }
+
+  bfs() {
+    var data = [];
+    var queue = [];
+    var node = this.root;
+    // Push root in queue
+    queue.push(node);
+    // While there is something in the queue
+    while (queue.length) {
+      // Get node.value fron queue
+      node = queue.shift();
+      // Add node.value to list
+      data.push(node.value);\
+      // If there is a node to the left, push into queue
+      if (node.left) queue.push(node.left);
+      // If there is a node to the right, push into queue
+      if (node.right) queue.push(node.right);
+    }
+    return data;
+  }
 }
 
 var tree = new BinarySearchTree();
@@ -48,6 +68,5 @@ tree.insert(14);
 tree.insert(8);
 tree.insert(4);
 tree.insert(19);
-console.log(tree.find(1));
-
+console.log(tree.bfs());
 // console.log(tree);
