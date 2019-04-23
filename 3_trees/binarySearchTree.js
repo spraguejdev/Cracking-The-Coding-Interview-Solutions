@@ -71,14 +71,25 @@ class BinarySearchTree {
     }
     return data;
   }
+
+  dfsPostOrder(node = this.root, data = []) {
+    if (node.left) {
+      this.dfsPreOrder(node.left, data);
+    }
+    if (node.right) {
+      this.dfsPreOrder(node.right, data);
+    }
+    data.push(node.value);
+    return data;
+  }
 }
 
 var tree = new BinarySearchTree();
 tree.insert(10);
-tree.insert(14);
+tree.insert(6);
 tree.insert(8);
-tree.insert(4);
+tree.insert(3);
 tree.insert(15);
-tree.insert(19);
+tree.insert(20);
 console.log(tree.dfsPreOrder());
 // console.log(tree);
