@@ -52,11 +52,22 @@ class BinarySearchTree {
       // Get node.value fron queue
       node = queue.shift();
       // Add node.value to list
-      data.push(node.value);\
+      data.push(node.value);
       // If there is a node to the left, push into queue
       if (node.left) queue.push(node.left);
       // If there is a node to the right, push into queue
       if (node.right) queue.push(node.right);
+    }
+    return data;
+  }
+
+  dfsPreOrder(node = this.root, data = []) {
+    data.push(node.value);
+    if (node.left) {
+      this.dfsPreOrder(node.left, data);
+    }
+    if (node.right) {
+      this.dfsPreOrder(node.right, data);
     }
     return data;
   }
@@ -67,6 +78,7 @@ tree.insert(10);
 tree.insert(14);
 tree.insert(8);
 tree.insert(4);
+tree.insert(15);
 tree.insert(19);
-console.log(tree.bfs());
+console.log(tree.dfsPreOrder());
 // console.log(tree);
