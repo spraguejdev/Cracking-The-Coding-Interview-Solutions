@@ -71,25 +71,25 @@ class Graph {
     return results;
   }
 
-  dfsIterative(start) {
-    var visited = {};
-    var results = [];
-    var stack = [];
-    var temp;
-    stack.push(start);
-    visited[start] = true;
-    while (stack.length) {
-      temp = stack.pop();
-      results.push(temp);
-      this.adjacencyList[temp].forEach(neighbor => {
-        if (!visited[neighbor]) {
-          visited[neighbor] = true;
-          stack.push(neighbor);
-        }
-      });
-    }
-    return results;
-  }
+  // dfsIterative(start) {
+  //   var visited = {};
+  //   var results = [];
+  //   var stack = [];
+  //   var temp;
+  //   stack.push(start);
+  //   visited[start] = true;
+  //   while (stack.length) {
+  //     temp = stack.pop();
+  //     results.push(temp);
+  //     this.adjacencyList[temp].forEach(neighbor => {
+  //       if (!visited[neighbor]) {
+  //         visited[neighbor] = true;
+  //         stack.push(neighbor);
+  //       }
+  //     });
+  //   }
+  //   return results;
+  // }
 
   bfsIterative(start) {
     var visited = {};
@@ -101,9 +101,9 @@ class Graph {
     while (queue.length) {
       temp = queue.shift();
       results.push(temp);
+      visited[temp] = true;
       this.adjacencyList[temp].forEach(neighbor => {
         if (!visited[neighbor]) {
-          visited[neighbor] = true;
           queue.push(neighbor);
         }
       });
@@ -126,4 +126,5 @@ graph.addEdge(4, 6);
 graph.addEdge(4, 7);
 graph.addEdge(5, 6);
 graph.addEdge(6, 7);
+graph.addEdge(3, 7);
 console.log(graph.bfsIterative(4));
