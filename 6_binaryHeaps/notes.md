@@ -28,3 +28,11 @@
 ## Representing heaps
 
 > We use an array to store a binary heap
+
+## Priority Queue
+
+> Wikipedia: A data structure where each element has a priority. Eleents with higher priorities are served before elements with lower priorities.
+> Take one element at a time, that we are going to tackle next. Like an emergency room at a hosipital, everyone has a prioroty level, and the docter comes out and grabs the next persion who has the highest priority.
+> Always serves the highest priority element.
+> Seperate from heaps, they are an abstract concept. They can be implemented with a list.
+> \*\* [Priority: 3, Priority: 2, Priority: 5] => Lowest number is 2, iterate over the entire thing to find the highest priority element.
