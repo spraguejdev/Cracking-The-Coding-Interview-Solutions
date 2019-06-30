@@ -27,7 +27,7 @@ function findFirstUniqueCharacter(inputString) {
   return -1;
 }
 
-// Another way to solve this using indexOf and both arguments
+// Another way to solve this using indexOf, where we start to search after the current position.
 function findFirstUniqueCharacter(s) {
   if (!s) {
     return -1;
