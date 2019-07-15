@@ -102,24 +102,44 @@ class BinarySearchTree {
 
     return Math.max(left, right);
   }
+
+  isValidBST(node = this.root) {
+    let helper = (root, minVal, maxVal) => {
+      if (root === null) {
+        return true;
+      }
+
+      if (
+        (minVal !== null && root.value <= minVal) ||
+        (maxVal !== null && root.value >= maxVal)
+      ) {
+        return false;
+      }
+
+      return !!(
+        helper(root.left, minVal, root.value) &&
+        helper(root.right, root.value, maxVal)
+      );
+      return helper(node, null, null);
+    };
+  }
 }
 
 var tree = new BinarySearchTree();
-tree.insert(10);
-tree.insert(6);
-tree.insert(8);
-tree.insert(9);
+tree.insert(5);
+tree.insert(4);
 tree.insert(3);
-tree.insert(2);
-
-tree.insert(15);
-tree.insert(20);
-tree.insert(17);
+tree.insert(1);
+tree.insert(0);
+tree.insert(9);
+tree.insert(7);
+tree.insert(10);
+tree.insert(11);
+console.log(tree.dfsPostOrder());
 
 // console.log(tree.dfsPostOrder());
 // console.log(tree.dfsInOrder());
-// console.log(tree.dfsPreOrder());
-console.log(tree.maxDepth());
+// console.log(tree.maxDepth());
 var maxDepth = function(root) {
   if (!root) return 0;
   const queue = [root];
